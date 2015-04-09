@@ -1,45 +1,56 @@
-% !TeX document-id = {acd94374-0a5a-4c39-a15c-8f2e56f0151a}
-\documentclass[12pt,a4paper, listof=entryprefix, bibliography=totocnumbered,toc=listofnumbered,lof=listofnumbered]{scrartcl}
+\documentclass[12pt,a4paper, listof=entryprefix, bibliography=totocnumbered,toc=listofnumbered]{scrartcl}
 
-% WICHTIG!!!
-% Pseudokommentar um pdflatex zu erlauben andere Programme zu nutzen z.B. gnuplot
-% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape] 
-
-% Deutsche Umlaute
+% Fonts / Encoding
 \usepackage{microtype}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{upquote}
+\usepackage{csquotes}
 
+% Mathe
 \usepackage{amsmath}
-\usepackage{nccmath}
-\usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{tabularx}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage[right]{eurosym}
-\usepackage[printonlyused]{acronym}
-\usepackage{subfig}
-\usepackage{floatflt}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{latexsym}
+
+% Grafik
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{subfig}
 \usepackage{xcolor}
-\usepackage{paralist}
-\usepackage{array}
-\usepackage{titlesec}
-\usepackage{parskip}
-\usepackage{picinpar}
-\usepackage[pdfpagelabels=true]{hyperref}
+
+% Quellcode
 \usepackage{listings}
-\usepackage{csquotes}
-\usepackage{url}
+\usepackage{scrhack}
+
+% Seitengestaltung
+\usepackage{array}
 \usepackage{float}
+\usepackage{geometry}
+\usepackage{setspace}
+
+% Tabellen
+\usepackage{hhline}
+\usepackage{multirow}
+
+% Aufzählungen
 \usepackage{paralist}
+
+% PDF
+\usepackage{hyperref}
+\usepackage{url}
+
+% Verzeichnisse
+\usepackage[printonlyused]{acronym}
 \usepackage[nonumberlist, nogroupskip]{glossaries}
+
+% LEGACY
+\usepackage{fancyhdr}
+\usepackage{titlesec}
 
 %-----------------------------------------------------------------------------------
 % Bibilothek
@@ -105,14 +116,19 @@ backend = biber,           % Backnend für Aufbereitung
 % --------------------------------------------------------------------------------
 % Metainformationen
 % --------------------------------------------------------------------------------
-\hypersetup{unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH},
+\hypersetup{
 	pdftitle={Ausarbeitung},
 	pdfauthor={Tobias Mehrl, Thomas Butz},
 	pdfsubject={Unterschied zwischen Normal- und Gammaverteilung},
 	pdfcreator={\LaTeX\ with package \flqq hyperref\frqq},
 	pdfproducer={pdfTeX \the\pdftexversion.\pdftexrevision},
 	pdfnewwindow=true,
-	colorlinks=true,linkcolor=black,citecolor=black,filecolor=magenta,urlcolor=black}
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+	filecolor=magenta,
+	urlcolor=black
+}
 
 %-----------------------------------------------------------------------------------
 % Abkürzungen AKRONYME HIER ERGÄNZEN
@@ -160,7 +176,7 @@ backend = biber,           % Backnend für Aufbereitung
 \thispagestyle{empty}
 
 %LIP Schriftzug in eigener Farbe 
-\textsf{\begin{minipage}{.69\textwidth}
+\textsf{\begin{minipage}{.60\textwidth}
 	\large
 	\textcolor{lip}{\textbf{Labor für Informationstechnik und\\Produktionslogistik (LIP)}} %Farbe setzten
 	\small 
