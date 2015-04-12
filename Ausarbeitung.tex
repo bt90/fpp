@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper, listof=entryprefix, bibliography=totocnumbered,toc=listofnumbered]{scrartcl}
+\documentclass[12pt,a4paper, listof=entryprefix, bibliography=totocnumbered,toc=listofnumbered,footsepline]{scrartcl}
 
 % Fonts / Encoding
 \usepackage{microtype}
@@ -32,6 +32,7 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{setspace}
+\usepackage[automark,headsepline]{scrlayer-scrpage}
 
 % Tabellen
 \usepackage{hhline}
@@ -49,7 +50,7 @@
 \usepackage[nonumberlist, nogroupskip]{glossaries}
 
 % LEGACY
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 \usepackage{titlesec}
 
 %-----------------------------------------------------------------------------------
@@ -96,13 +97,23 @@ backend = biber,           % Backnend für Aufbereitung
 }
 
 % Bibliothek der Quellen
-\bibliography{bib}
-\label{bib}
+\addbibresource{bib.bib}
 
 % --------------------------------------------------------------------------------
 % Einstellung für Listings
 % --------------------------------------------------------------------------------
-\lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em}
+\lstset{
+	basicstyle=\footnotesize, 
+	captionpos=b,
+	breaklines=true,
+	showstringspaces=false,
+	tabsize=2,
+	frame=lines,
+	numbers=left,
+	numberstyle=\tiny,
+	xleftmargin=2em,
+	framexleftmargin=2em
+}
 \makeatletter
 \def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1em}{\hspace{1,5em} Lst. #1}{#2}}
 \makeatother
@@ -111,7 +122,7 @@ backend = biber,           % Backnend für Aufbereitung
 % Seitenformate
 % --------------------------------------------------------------------------------
 %Seitenformat
-\geometry{a4paper, top=27mm, left=30mm, right=20mm, bottom=32mm, headsep=12mm, footskip=12mm}
+\geometry{a4paper, top=27mm, left=30mm, right=20mm, bottom=32mm, headsep=12mm, footskip=10mm}
 
 % --------------------------------------------------------------------------------
 % Metainformationen
@@ -153,13 +164,11 @@ backend = biber,           % Backnend für Aufbereitung
 \titlespacing{\subsubsection}{0pt}{12pt}{6pt}
 
 % Kopf- und Fusszeile
-\pagestyle{fancy}
-\lhead{}\chead{}
-\rhead{\thesection\space\contentsname}
-\lhead{}\cfoot{}
-\rfoot{\ \linebreak \thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\clearpairofpagestyles
+\ofoot[\pagemark]{\pagemark}
+\lehead{\headmark}
+\rohead{\headmark}
+\pagestyle{scrheadings}
 
 % Nummereriung
 \renewcommand{\thesection}{\Roman{section}}
@@ -236,7 +245,7 @@ backend = biber,           % Backnend für Aufbereitung
 \renewcommand{\sectionmark}[1]{\markright{#1}} %Section ausgeben
 \renewcommand{\subsectionmark}[1]{}            %Subsection nicht ausgeben
 \renewcommand{\subsubsectionmark}[1]{}         %Subsubsection nicht ausgeben
-\rhead{\rightmark}                             %Ausgabe Rechtsbündig
+%\rhead{\rightmark}                             %Ausgabe Rechtsbündig
 
 %------------------------------------------------------------------------------
 %	Inhalt
@@ -252,7 +261,7 @@ backend = biber,           % Backnend für Aufbereitung
 
 %-------------------------------------------------------------------------------------
 % Verzeichnisse %-------------------------------------------------------------------------------------
-	\rhead{Verzeichnisse} %Kopftextbeschriftung
+	\markboth{Verzeichnisse}{Verzeichnisse} %Kopftextbeschriftung
 
 	\stepcounter{section}
 	\phantomsection \label{Verzeichnisse}
@@ -260,7 +269,7 @@ backend = biber,           % Backnend für Aufbereitung
 	\renewcommand{\thesection}{\Roman{verzeichnis}}
 	\section*{Verzeichnisse}
 	% Literaturverzeichnis
-	\rhead{Verzeichnisse}
+	\markboth{Verzeichnisse}{Verzeichnisse}
 	\renewcommand{\refname}{Literaturverzeichnis}
 	\printbibliography
 	\pagebreak
@@ -287,7 +296,7 @@ backend = biber,           % Backnend für Aufbereitung
 % ---------------------------------------------------------------------------------
 \pagenumbering{Roman} %Seitennummerierung auf Romanisch stellen
 \setcounter{page}{1}  %Seitenzähler initialisieren
-\rhead{Anhang}        %Kopftextbeschriftung
+\markboth{Anhang}{Anhang}        %Kopftextbeschriftung
 \begin{appendix}
 	\phantomsection \label{Anhang}
 	\section*{Anhang}\addcontentsline{toc}{section}{Anhang} %Anhang ohne Nummer
