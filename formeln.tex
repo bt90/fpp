@@ -7,20 +7,27 @@ Y = Zufallsvariable für den Absatz
 
 \(Var(Y) \equiv \sigma(Y)\) = Varianz der Zufallsvariable $Y$
 
-\(\sigma(Y)\) = Varianz in Abhängigkeit der 
-
 \(s_{opt}\) = optimaler Bestellpunkt
 
 \(q_{opt}\) = optimale Bestellmenge
+
+\(I^{f, t}_{x}(s)\) = phys. Lagerbestand zum Zeitpunkt \(t\) für den Bestellpunkt \(s\) und einer Verteilungsfunktion \(x\) 
+
+\(F_x(s)\) = Fehlbestand für den Bestellpunkt \(s\) mit Verteilungsfunktion x 
+
+\(\mathcal{N}_{(0,1)}\) = Standardnormalverteilung
+
+\(\Gamma(\alpha_Y, k_Y)\) = Gammaverteilung mit Skalenparameter \(\alpha\) und Formparameter \(k\)
+
+\(\Phi_x\) = Dichtefunktion für die Verteilungsfunktion x
 \subsection{Normalverteilung}
 \begin{gather*}
 E\left(F_{\mathcal{N}(0,1)}(s)\right)=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s-E(Y)}{\sigma(Y)}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s+q_{opt}-E(Y)}{\sigma(Y)}\right) \\
-\text{unter Anwendung von } v_{s}=\frac{s_{opt}-E(Y)}{\sigma(Y)} \text{ ergibt sich:} \\
-E\left(F_{\mathcal{N}(0,1)}(s)\right)=\Phi^1_{\mathcal{N}(0,1)}\left(v_{s}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(v_s+\frac{q_{opt}}{\sigma(Y)}\right)
+s_{opt} = E(Y)+v_{s_{opt}} \cdot \sigma(Y) \Leftrightarrow v_{s_{opt}}=\frac{s_{opt}-E(Y)}{\sigma(Y)}
 \end{gather*}
 \subsection{Gammaverteilung}
 \begin{gather*}
 E\left(I^{f,End}_{\Gamma\left(\alpha_{Y},k_Y\right)}\left(s_{opt}\right)\right)=\frac{k_Y}{\alpha_Y}-s_{opt}-\frac{k_Y}{\alpha_Y}\cdot \Phi_{\Gamma\left(\alpha_Y,k_Y+1\right)}\left(s_{opt}\right)+s_{opt}\cdot \Phi_{\Gamma\left(\alpha_Y,k_Y\right)}\left(s_{opt}\right) \\
 E\left(I^{f,Anf}_{\Gamma\left(\alpha_{Y},k_Y\right)}\left(s_{opt}\right)\right)=\frac{k_Y}{\alpha_Y}-\left(s_{opt}+q_{opt}\right)-\frac{k_Y}{\alpha_Y}\cdot \Phi_{\Gamma\left(\alpha_Y,k_Y+1\right)}\left(s_{opt}+q_{opt}\right) \\
-\left(1-\beta\right)\cdot q_{opt}\geq E\left(F_{\Gamma\left(\alpha_{Y},k_{Y}\right)}\left(s_{opt}\right)\right)
+\left(1-\beta\right)\cdot q_{opt}= E\left(F_{\Gamma\left(\alpha_{Y},k_{Y}\right)}\left(s_{opt}\right)\right)
 \end{gather*}
