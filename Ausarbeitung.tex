@@ -10,11 +10,12 @@
 \usepackage{csquotes}
 
 % Mathe
-\usepackage{amsmath}
+\usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{latexsym}
+\usepackage{nccmath}
 
 % Grafik
 \usepackage[usenames,dvipsnames]{color}
@@ -81,6 +82,7 @@ backend = biber,           % Backnend für Aufbereitung
 %Abstände der Einträge
 \setlength{\bibitemsep}{1em}     % Abstand zwischen den Literaturangaben
 \setlength{\bibhang}{2em}        % Einzug nach jeweils erster Zeile
+
 
 % Kürzel soll vier Buchstaben der Autoren enthalten statt drei
 \DeclareLabelalphaTemplate{
@@ -251,11 +253,9 @@ backend = biber,           % Backnend für Aufbereitung
 %	Inhalt
 %------------------------------------------------------------------------------
 
-\section{Erster Gliederungspunkt}
-
-
-
-
+\include{aufgabenstellung}
+\include{formeln}
+\include{loesung}
 
 \pagebreak
 
