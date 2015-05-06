@@ -1,2 +1,33 @@
 \section{Lösung}
-\subsection{Optimierungsproblem}
+
+Gesucht sind die beiden Werte für \(s_{opt}\), die sich bei Einhaltung des \(\beta\)-Servicegrades für die beiden Verteilungsfunktionen \(\Gamma(\alpha_{Y^*},k_{Y^*})\) und \(\mathcal{N}(0,1)\) ergeben.
+
+Hierfür sind folgende von der Aufgabenstellung vorgegebenen Werte zu betrachten:
+\begin{itemize}
+	\item \(E(Y^*)=60\text{ Stück}\)
+	\item \(Var(Y^*)\equiv\sigma(Y^*)=700\)
+	\item \(\beta\text{-Servicegrad}=0,95\)
+	\item \(q=100\text{ Stück}\) 
+\end{itemize}
+
+Der Wert für \(s_{opt}\) lässt sich durch eine Optimierungsstrategie bestimmen. Dabei entspricht \(s_{opt}\) dem niedrigsten Wert von \(s\) bei dem der vorgegebene Servicegrad \(\beta\) noch erreicht wird. 
+
+Die dafür maximal zulässige  zu erwartende Fehlmenge bei einer zugrunde liegenden Normalverteilung, lässt sich über die zuvor genannte Formel für den \(\beta\)-Servicegrad berechnen:
+
+\[\beta = 1-\frac{E\left(F_{\mathcal{N}(0,1)}(s)\right)}{q_{opt}} \Leftrightarrow E\left(F_{\mathcal{N}(0,1)}(s)\right)=(1-\beta)\cdot q_{opt}\]
+
+Durch Einsetzen der vorgegebenen Werte für \(q\) und \(\beta\)-Servicegrad in die obige Gleichung, ergibt sich eine maximal zulässige Fehlmenge von \((1-0,95)\cdot 100 \text{ Stück}=5\text{ Stück}\). Dieser Wert gilt ebenfalls bei einer gammaverteilten Zufallsvariable.
+
+Um den optimalen Bestellpunkt \(s_{opt}\) ermitteln zu können, müssen daher für verschiedene Werte von \(s\) die sich dadurch ergebenden Fehlmengen betrachtet werden und möglichst nahe an den zuvor berechneten Wert von 5 Stück angenähert werden.
+
+Für die Normalverteilung kann der Erwartungswert für die Fehlmenge direkt durch die nachfolgende Gleichung berechnet werden. 
+
+\[E\left(F_{\mathcal{N}(0,1)}(s)\right)=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s-E(Y^*)}{\sigma(Y^*)}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s+q_{opt}-E(Y^*)}{\sigma(Y^*)}\right)\]
+
+Beim Einsetzen eines exemplarischen Wertes für s von 75 Stück, ergibt sich:
+
+\begin{align*}
+E\left(F_{\mathcal{N}(0,1)}(75)\right)&=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75-60)\text{ Stück}}{700}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75+100-60)\text{ Stück}}{700}\right)\\
+&\approx4,7\text{ Stück}
+\end{align*}
+
