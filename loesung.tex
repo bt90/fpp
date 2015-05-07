@@ -20,6 +20,7 @@ Durch Einsetzen der vorgegebenen Werte für \(q\) und \(\beta\)-Servicegrad in d
 
 Um den optimalen Bestellpunkt \(s_{opt}\) ermitteln zu können, müssen daher für verschiedene Werte von \(s\) die sich dadurch ergebenden Fehlmengen betrachtet werden und möglichst nahe an den zuvor berechneten Wert von 5 Stück angenähert werden.
 
+\subsection{Berechnung der Fehlmengen-Erwartungswerte}
 Für die Normalverteilung kann der Erwartungswert für die Fehlmenge direkt durch die nachfolgende Gleichung berechnet werden. 
 
 \[E\left(F_{\mathcal{N}(0,1)}(s)\right)=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s-E(Y^*)}{\sigma(Y^*)}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s+q_{opt}-E(Y^*)}{\sigma(Y^*)}\right)\]
@@ -39,7 +40,8 @@ Analog dazu lässt sich der Erwartungswert für die Fehlmenge bei einer gammaver
 &= E\left(I^{f,End}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right)-E\left(I^{f,Anf}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right)= \\
 &= \frac{k_{Y^*}}{\alpha_{Y^*}}-s-\frac{k_{Y^*}}{\alpha_{Y^*}}\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)+s\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) \\
 &\quad - \left(\frac{k_{Y^*}}{\alpha_{Y^*}}-\left(s+q_{opt}\right)-\frac{k_{Y^*}}{\alpha_{Y^*}}\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)\right) = \\
-&= q_{opt}+s \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)- \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) + \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)
+&= q_{opt}+s \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)- \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) + \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)=\\
+&= q_{opt}+s \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)- E(Y^*) \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) + E(Y^*) \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)
 \end{align*}
 
 
@@ -47,6 +49,10 @@ Exemplarisch für einen Wert s von 75 Stück wird nun die Fehlmenge für eine Ga
 
 \begin{align*}
 &E\left(F_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}(75 \text{ Stk.})\right)= \\
-&= 100\text{ Stk.}+75\text{ Stk.} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}\right)- \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(75\text{ Stk.}\right) \\
-&\quad + \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}+100\text{ Stk.}\right)=
+&= 100\text{ Stk.}+75\text{ Stk.} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}\right)- 60\text{Stk.} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(75\text{ Stk.}\right) \\
+&\quad + 60\text{ Stk.} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}+100\text{ Stk.}\right) \approx 5,3\text{ Stk.}
 \end{align*}
+
+Basierend auf den exemplarisch berechneten Werten kann nun \(s_{opt}\) über Annäherung der Fehlmenge an den oben berechneten Zielwert von 5,0 Stk. ermittelt werden. Zu beachten ist dabei, dass die Funktionen zur Berechnung der Erwartungswerte für die beiden Verteilungsfunktionen der Fehlmengen in beiden Fällen streng monoton fallend sind.
+
+Für die Normalverteilung muss der Wert von s daher stückweise verringert werden, bis die gesuchte Fehlmenge erreicht ist. Im Gegensatz dazu muss s im Falle der Gammaverteilung erhöht werden, um \(s_{opt}\) zu erhalten. Die Tabelle \ref{tab:auswertung} führt die Ergebnisse dieses Vorgehens parallel für beide Verteilungsfunktionen auf und zeigt die so gefundenen Werte von \(s_{opt}\).

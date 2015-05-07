@@ -286,31 +286,31 @@ backend = biber,           % Backnend für Aufbereitung
 	\pagebreak
 	
 	% Abkürzungen
-	\stepcounter{verzeichnis}
-	\section{Abkürzungsverzeichnis}
-	\vspace{-6em} % Abstand analog der anderen Verzeichnisse reduzieren
-	\printnoidxglossary[type=\acronymtype,style=alttree,title=,toctitle=] %automatischen Titel und Gliederungsbeschriftung unterdrücken - sonst steht da Glossarie
-	\newpage
+%	\stepcounter{verzeichnis}
+%	\section{Abkürzungsverzeichnis}
+%	\vspace{-6em} % Abstand analog der anderen Verzeichnisse reduzieren
+%	\printnoidxglossary[type=\acronymtype,style=alttree,title=,toctitle=] %automatischen Titel und Gliederungsbeschriftung unterdrücken - sonst steht da Glossarie
+%	\newpage
 
 % ---------------------------------------------------------------------------------
 % Anhang
 % ---------------------------------------------------------------------------------
-\pagenumbering{Roman} %Seitennummerierung auf Romanisch stellen
-\setcounter{page}{1}  %Seitenzähler initialisieren
-\markboth{Anhang}{Anhang}        %Kopftextbeschriftung
-\begin{appendix}
-	\phantomsection \label{Anhang}
-	\section*{Anhang}\addcontentsline{toc}{section}{Anhang} %Anhang ohne Nummer
-	\renewcommand{\thesection}{\Roman{section}}
-	
-	\setcounter{section}{0} %Counter für Nummerirung der Anhänge initalisieren
-	\section{GUI}
-	\label{app:gui}
-	Ein toller Anhang.
-	
-	\section{Screenshot}
-	\label{app:screenshot}
-	Zweiter Anhang.
-\end{appendix}
+%\pagenumbering{Roman} %Seitennummerierung auf Romanisch stellen
+%\setcounter{page}{1}  %Seitenzähler initialisieren
+%\markboth{Anhang}{Anhang}        %Kopftextbeschriftung
+%\begin{appendix}
+%	\phantomsection \label{Anhang}
+%	\section*{Anhang}\addcontentsline{toc}{section}{Anhang} %Anhang ohne Nummer
+%	\renewcommand{\thesection}{\Roman{section}}
+%	
+%	\setcounter{section}{0} %Counter für Nummerirung der Anhänge initalisieren
+%	\section{GUI}
+%	\label{app:gui}
+%	Ein toller Anhang.
+%	
+%	\section{Screenshot}
+%	\label{app:screenshot}
+%	Zweiter Anhang.
+%\end{appendix}
 
 \end{document}
