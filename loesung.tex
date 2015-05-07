@@ -24,10 +24,29 @@ Für die Normalverteilung kann der Erwartungswert für die Fehlmenge direkt durc
 
 \[E\left(F_{\mathcal{N}(0,1)}(s)\right)=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s-E(Y^*)}{\sigma(Y^*)}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{s+q_{opt}-E(Y^*)}{\sigma(Y^*)}\right)\]
 
-Beim Einsetzen eines exemplarischen Wertes für s von 75 Stück, ergibt sich:
+Beim Einsetzen eines exemplarischen Wertes von 75 Stück für s, ergibt sich:
 
 \begin{align*}
-E\left(F_{\mathcal{N}(0,1)}(75)\right)&=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75-60)\text{ Stück}}{700}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75+100-60)\text{ Stück}}{700}\right)\\
-&\approx4,7\text{ Stück}
+E\left(F_{\mathcal{N}(0,1)}(75)\right)&=\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75-60)\text{ Stk.}}{700}\right)-\Phi^1_{\mathcal{N}(0,1)}\left(\frac{(75+100-60)\text{ Stk.}}{700}\right)\\
+&\approx4,7\text{ Stk.}
 \end{align*}
 
+\pagebreak
+Analog dazu lässt sich der Erwartungswert für die Fehlmenge bei einer gammaverteilten Zufallsvariable wie folgt berechnen:
+
+\begin{align*}
+&E\left(F_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}(s)\right)= E\left(I^{f,End}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right)-E\left(I^{f,Anf}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right) = \\
+&= E\left(I^{f,End}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right)-E\left(I^{f,Anf}_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right)\right)= \\
+&= \frac{k_{Y^*}}{\alpha_{Y^*}}-s-\frac{k_{Y^*}}{\alpha_{Y^*}}\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)+s\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) \\
+&\quad - \left(\frac{k_{Y^*}}{\alpha_{Y^*}}-\left(s+q_{opt}\right)-\frac{k_{Y^*}}{\alpha_{Y^*}}\cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)\right) = \\
+&= q_{opt}+s \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s\right)- \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(s\right) + \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(s+q_{opt}\right)
+\end{align*}
+
+
+Exemplarisch für einen Wert s von 75 Stück wird nun die Fehlmenge für eine Gammaverteilung wie folgt berechnet:
+
+\begin{align*}
+&E\left(F_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}(75 \text{ Stk.})\right)= \\
+&= 100\text{ Stk.}+75\text{ Stk.} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}\right)- \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}\right)}\left(75\text{ Stk.}\right) \\
+&\quad + \frac{k_{Y^*}}{\alpha_{Y^*}} \cdot \Phi_{\Gamma\left(\alpha_{Y^*},k_{Y^*}+1\right)}\left(75\text{ Stk.}+100\text{ Stk.}\right)=
+\end{align*}
